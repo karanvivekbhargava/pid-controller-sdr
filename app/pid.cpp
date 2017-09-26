@@ -45,5 +45,10 @@ float PID::compute(float targetVelocity, float currentVelocity) {
   // to iError
   // 5. Compute the final responses by using all the errors with class variables
   // Kp, Ki, Kd and currentVelocity.
-  return 1.0;
+  float error = targetVelocity - currentVelocity;
+  float de = (error - prevError)/dt;
+  float di = iError + error*dt;
+  prevError = error;
+  iError = di;
+  return (currentVelocity + Kp*error + Kd*de + Ki*di);
 }

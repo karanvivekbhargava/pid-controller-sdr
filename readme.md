@@ -1,8 +1,64 @@
-# C++ Boilerplate
+# PID Controller (ENPM808X)
 [![Build Status](https://travis-ci.org/karanvivekbhargava/pid-controller-sdr.svg?branch=master)](https://travis-ci.org/karanvivekbhargava/pid-controller-sdr)
 [![Coverage Status](https://coveralls.io/repos/github/karanvivekbhargava/pid-controller-sdr/badge.svg?branch=master)](https://coveralls.io/github/karanvivekbhargava/pid-controller-sdr?branch=master)
 ---
+## Discussion Keypoints
 
+We discussed on whether the UML diagram for the class was good enough to convey my thoughts to the team.
+<p align="center">
+<a target="_blank"><img src="https://github.com/karanvivekbhargava/pid-controller-sdr/blob/master/Class_Diagram.jpg" 
+alt="NMPC" width="480" height="360" border="10" />
+</a>
+</p>
+
+We also discussed a bit on how the compute method works based on the activity diagram. Anyone working with robotics systems understands how to make a PID controller however this gives a clear idea on how to proceed.
+
+<p align="center">
+<a target="_blank"><img src="https://raw.githubusercontent.com/karanvivekbhargava/pid-controller-sdr/master/Activity%20Diagram.jpg" 
+alt="NMPC" width="480" height="640" border="10" />
+</a>
+</p>
+
+We discussed a few tests and how to improve upon the current implementation by adding more tests.
+
+1. Step or Convergence Test (Implemented)
+<p align="center">
+<a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/Step-Testv2-800x480.jpg" 
+alt="NMPC" width="480" height="360" border="10" />
+</a>
+</p>
+This test was to check the convergence of the controller to the target velocity in a fixed time. It can be viewed as checking the settling time of the system.
+
+2. Bump Test (Implemented)
+<p align="center">
+<a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/Bump-Test-v2-800x480.png" 
+alt="NMPC" width="480" height="360" border="10" />
+</a>
+</p>
+This test uses two steps in succession in opposite direction. It checks whether the response is settling at the final target velocity in the given time.
+
+3. Doublet Test (Possible Improvement)
+<p align="center">
+<a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/Doublet-Test-v2-800x480.png" 
+alt="NMPC" width="480" height="360" border="10" />
+</a>
+</p>
+
+Similarly, the Doublet Test is two (2) Bump Tests performed in rapid succession and in opposite directions. The second bump is implemented as soon as the process shows a clear response to the first bump.  Note that the second bump returns the SP to its original value.
+
+
+4. PRBS Test (Possible Improvement)
+<p align="center">
+<a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/PRBS-Test-v2-800x480.png" 
+alt="NMPC" width="480" height="360" border="10" />
+</a>
+</p>
+
+Finally, a Pseudo-Random Binary Sequence (PRBS) Test is a sequence of SP pulses – or Bump Tests – that are uniform in amplitude, alternating in direction, and of random duration.  While more changes to the SP are involved, the PRBS Test allows each change to be of lesser magnitude.
+
+The other possible improvement is to use more C++ 11 features in the code.
+
+---
 ## Overview
 
 Simple starter C++ project with:

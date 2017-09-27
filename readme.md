@@ -4,6 +4,8 @@
 ---
 ## Discussion Keypoints
 
+## UML Diagrams
+
 We discussed on whether the UML diagram for the class was good enough to convey my thoughts to the team.
 <p align="center">
 <a target="_blank"><img src="https://github.com/karanvivekbhargava/pid-controller-sdr/blob/master/Class_Diagram.jpg" 
@@ -19,9 +21,11 @@ alt="NMPC" width="480" height="640" border="10" />
 </a>
 </p>
 
+## Tests
+
 We discussed a few tests and how to improve upon the current implementation by adding more tests.
 
-1. Step or Convergence Test (Implemented)
+## 1. Step or Convergence Test (Implemented)
 <p align="center">
 <a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/Step-Testv2-800x480.jpg" 
 alt="NMPC" width="480" height="360" border="10" />
@@ -29,7 +33,7 @@ alt="NMPC" width="480" height="360" border="10" />
 </p>
 This test was to check the convergence of the controller to the target velocity in a fixed time. It can be viewed as checking the settling time of the system.
 
-2. Bump Test (Implemented)
+## 2. Bump Test (Implemented)
 <p align="center">
 <a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/Bump-Test-v2-800x480.png" 
 alt="NMPC" width="480" height="360" border="10" />
@@ -37,7 +41,7 @@ alt="NMPC" width="480" height="360" border="10" />
 </p>
 This test uses two steps in succession in opposite direction. It checks whether the response is settling at the final target velocity in the given time.
 
-3. Doublet Test (Possible Improvement)
+## 3. Doublet Test (Possible Improvement)
 <p align="center">
 <a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/Doublet-Test-v2-800x480.png" 
 alt="NMPC" width="480" height="360" border="10" />
@@ -47,7 +51,7 @@ alt="NMPC" width="480" height="360" border="10" />
 Similarly, the Doublet Test is two (2) Bump Tests performed in rapid succession and in opposite directions. The second bump is implemented as soon as the process shows a clear response to the first bump.  Note that the second bump returns the SP to its original value.
 
 
-4. PRBS Test (Possible Improvement)
+## 4. PRBS Test (Possible Improvement)
 <p align="center">
 <a target="_blank"><img src="https://797ib1mbyf481ftl3rimdn3x-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/PRBS-Test-v2-800x480.png" 
 alt="NMPC" width="480" height="360" border="10" />
